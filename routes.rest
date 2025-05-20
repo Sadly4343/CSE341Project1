@@ -1,0 +1,32 @@
+GET http://localhost:3000/cars
+
+### 
+GET http://localhost:3000/contacts/681f153c9c4757f3776e3ac7
+
+
+### Create contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"John",
+    "lastName":"Doe",
+    "email":"JohnDoe1@gmail.com",
+    "favoriteColor":"Blue",
+    "birthday":"06 32 96"
+}
+###
+
+PUT http://localhost:3000/contacts/681f153c9c4757f3776e3ac7 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"John",
+    "lastName":"Doe",
+    "email":"JohnDoe1@gmail.com",
+    "favoriteColor":"Blue",
+    "birthday":"06 32 96"
+}
+###
+
+DELETE http://localhost:3000/contacts/681f153c9c4757f3776e3ac7
