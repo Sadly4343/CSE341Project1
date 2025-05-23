@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     try{
-    //#swagger.tag=['Clients']
+    //#swagger.tag=['clients']
     const result = await mongodb.getDatabase().db().collection('clients').find();
     result.toArray().then((clients) => {
         res.setHeader('Content-Type', 'application/json');
@@ -17,7 +17,7 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
     try{
-    //#swagger.tag=['Clients']
+    //#swagger.tag=['clients']
     const clientId = new ObjectId(req.params.id);
     console.log(req.params.id);
     const result = await mongodb.getDatabase().db().collection('clients').find({ _id: clientId });
@@ -36,7 +36,7 @@ const createClient = async (req, res) => {
     try {
 
     
-    //#swagger.tag=['Clients']
+    //#swagger.tag=['clients']
     const client = {
         name: req.body.name,
         email: req.body.email,
@@ -58,7 +58,7 @@ const createClient = async (req, res) => {
 
 const updateClient = async (req, res) => {
     try {
-    //#swagger.tag=['Clients']
+    //#swagger.tag=['clients']
     const clientId = new ObjectId(req.params.id);
     const client = {
         name: req.body.name,
@@ -83,7 +83,7 @@ const deleteClient = async (req, res) => {
     try {
 
     
-    //#swagger.tag=['Clients']
+    //#swagger.tag=['clients']
     const clientId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('clients').deleteOne({ _id: clientId});
     if (response.modifiedCount > 0) {

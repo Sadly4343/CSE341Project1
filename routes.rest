@@ -1,7 +1,7 @@
 GET http://localhost:3000/cars
 
 ### 
-GET http://localhost:3000/contacts/681f153c9c4757f3776e3ac7
+GET http://localhost:3000/cars/682be638f960668c7d8f35ac
 
 
 ### Create contact
@@ -9,11 +9,14 @@ POST http://localhost:3000/cars HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"John",
-    "lastName":"Doe",
-    "email":"JohnDoe1@gmail.com",
-    "favoriteColor":"Blue",
-    "birthday":"06 32 96"
+    "_id": "682be638f960668c7d8f35ac",
+  "make": "Toyota1",
+  "model": "Camry",
+  "year": 2015,
+  "color": "Yellow",
+  "price": "13000",
+  "mileage": "4000",
+  "ownerId": "682be5e5f960668c7d8f35ab"
 }
 ###
 

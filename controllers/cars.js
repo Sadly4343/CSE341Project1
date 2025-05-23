@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     try {
-        //#swagger.tag=['Cars']
+        //#swagger.tag=['carcollection']
         const result = await mongodb.getDatabase().db().collection('carcollection').find();
         result.toArray().then((carcollection) => {
         res.setHeader('Content-Type', 'application/json');
@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
     try {
-      //#swagger.tag=['Cars']
+      //#swagger.tag=['carcollection']
     const carId = new ObjectId(req.params.id);
     console.log(req.params.id);
     const result = await mongodb.getDatabase().db().collection('carcollection').find({ _id: carId });
@@ -36,7 +36,7 @@ const getSingle = async (req, res) => {
 
 const createCar = async (req, res) => {
     try {
-        //#swagger.tag=['Cars']
+        //#swagger.tag=['carcollection']
     const car = {
         make: req.body.make,
         model: req.body.model,
@@ -66,7 +66,7 @@ const updateCar = async (req, res) => {
     try {
 
     
-    //#swagger.tag=['Cars']
+    //#swagger.tag=['carcollection']
     const carId = new ObjectId(req.params.id);
     const car = {
         make: req.body.make,
@@ -93,7 +93,7 @@ const deleteCar = async (req, res) => {
     try {
 
     
-    //#swagger.tag=['Cars']
+    //#swagger.tag=['carcollection']
     const carId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('carcollection').deleteOne({ _id: carId}, car);
     if (response.modifiedCount > 0) {

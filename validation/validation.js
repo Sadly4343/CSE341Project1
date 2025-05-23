@@ -26,8 +26,7 @@ const carValidationRules = () => {
             .notEmpty().withMessage('Model is required')
             .isLength({ min: 2 }).withMessage('Model must be at least 2 characters long'),
         body('year')
-            .notEmpty().withMessage('Year is required')
-            .isInt({ min: 4, max: 4} ).withMessage('Year must be a valid year'),
+            .notEmpty().withMessage('Year is required'),
         body('color')
             .notEmpty().withMessage('Color is required'),
         body('price')
