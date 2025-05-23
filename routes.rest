@@ -5,7 +5,7 @@ GET http://localhost:3000/contacts/681f153c9c4757f3776e3ac7
 
 
 ### Create contact
-POST http://localhost:3000/contacts HTTP/1.1
+POST http://localhost:3000/cars HTTP/1.1
 content-type: application/json
 
 {
