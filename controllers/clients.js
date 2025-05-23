@@ -3,15 +3,20 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+    try{
     //#swagger.tag=['Clients']
     const result = await mongodb.getDatabase().db().collection('clients').find();
     result.toArray().then((clients) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(clients);
-    });
+    });}
+    catch (err) {
+    res.status(500).json({error: err.message || "Error has occured deleting car" })
+}
 };
 
 const getSingle = async (req, res) => {
+    try{
     //#swagger.tag=['Clients']
     const clientId = new ObjectId(req.params.id);
     console.log(req.params.id);
@@ -20,10 +25,17 @@ const getSingle = async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(clients[0]);
 
-    });
+    });}
+
+    catch (err) {
+    res.status(500).json({error: err.message || "Error has occured deleting car" })
+}
 };
 
 const createClient = async (req, res) => {
+    try {
+
+    
     //#swagger.tag=['Clients']
     const client = {
         name: req.body.name,
@@ -38,10 +50,14 @@ const createClient = async (req, res) => {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Error occured updating user');
-    }
+    }}
+    catch (err) {
+    res.status(500).json({error: err.message || "Error has occured deleting car" })
+}
 }
 
 const updateClient = async (req, res) => {
+    try {
     //#swagger.tag=['Clients']
     const clientId = new ObjectId(req.params.id);
     const client = {
@@ -57,10 +73,16 @@ const updateClient = async (req, res) => {
     } else {
         res.status(500).json(response.error || 'Error occured updating car');
 
-    };
+    };}
+    catch (err) {
+    res.status(500).json({error: err.message || "Error has occured deleting car" })
+}
 };
 
 const deleteClient = async (req, res) => {
+    try {
+
+    
     //#swagger.tag=['Clients']
     const clientId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('clients').deleteOne({ _id: clientId});
@@ -68,7 +90,10 @@ const deleteClient = async (req, res) => {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Error occured while deleting car');
-    }
+    }}
+    catch (err) {
+    res.status(500).json({error: err.message || "Error has occured deleting car" })
+}
 }
 
 module.exports = {
