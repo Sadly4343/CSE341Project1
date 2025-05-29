@@ -5,7 +5,7 @@
     "description": "Car Api",
     "version": "1.0.0"
   },
-  "host": "cse341project1-53tp.onrender.com/",
+  "host": "cse341project1-53tp.onrender.com",
   "basePath": "/",
   "schemes": [
     "https",
