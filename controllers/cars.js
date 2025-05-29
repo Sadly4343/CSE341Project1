@@ -95,7 +95,7 @@ const deleteCar = async (req, res) => {
     
     //#swagger.tag=['carcollection']
     const carId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('carcollection').deleteOne({ _id: carId}, car);
+    const response = await mongodb.getDatabase().db().collection('carcollection').deleteOne({ _id: carId});
     if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
