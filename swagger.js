@@ -5,7 +5,7 @@ const doc = {
         title: 'Car Api',
         description: 'Car Api'
     },
-    host: 'cse341project1-53tp.onrender.com',
+    host: 'cse341project1-53tp.onrender.com/',
     schemes: ['https', 'http']
 };
 
